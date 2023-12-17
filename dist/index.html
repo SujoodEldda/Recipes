@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+<body>
+
+    <div class="container">	
+        <div class="filter">
+            <input id="ingredient-input" type="text">
+            <br>
+            
+            <input type="checkbox" id="gluten" name="gluten">
+          <label for="gluten"> allergic to gluten Ingredients</label><br>
+          <input type="checkbox" id="diary" name="diary">
+          <label for="diary"> allergic to dairy Ingredients</label><br><br>
+            <button id="filter-recipes">Search!</button>
+        </div>
+        
+        <br>
+        <br>
+        <section class="u-align-center u-clearfix u-palette-2-light-3 u-section-1" id="carousel_0af6">
+            <div class="u-clearfix u-sheet u-sheet-1">
+              <div class="u-expanded-width u-list u-list-1">
+                <div class="recipes u-repeater u-repeater-1">
+                 
+                </div>
+              </div>
+            </div>
+          </section>
+
+    <script id="recipe-template" type="text/x-handlebars-template">
+        <div class="u-container-style u-list-item u-radius-20 u-repeater-item u-shape-round u-video-cover u-white u-list-item-1">
+            <div id={{idMeal}} class="u-container-layout u-similar-container u-valign-bottom-lg u-valign-bottom-md u-valign-top-xl u-container-layout-1">
+              <img alt="" class="u-expanded-width u-image u-image-round u-radius-10 u-image-1" data-image-width="900" data-image-height="600" src={{thumbnail}}>
+              <h4 class="recipe u-text u-text-palette-2-base u-text-1"> {{title}}</h4>
+              <p class="u-text u-text-default u-text-2 ">ingredients:
+                <ul class="three-items-row">
+                    {{#each ingredients}}
+                    <li id={{this}} class="ingredients">{{this}}</li>
+                    {{/each}}
+                </ul>
+            </p>
+              <a href={{href}} class="u-active-black u-border-none u-btn u-btn-round u-button-style u-hover-black u-palette-2-base u-radius-50 u-btn-1">Watch the video</a>
+            </div>
+          </div>
+
+        
+       
+   </script>
+
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="main.js"></script> 
+</body>
+</html>
