@@ -1,0 +1,6 @@
+const filterRecipes = $("#filter-recipes")
+const ingredientInput = $("#ingredient-input")
+const glutenCheckBox = $("#gluten")
+const diaryCheckBox = $("#diary")
+const recipeTemplate = $(`#recipe-template`)
+const recipesContainer = $(`.recipes`)

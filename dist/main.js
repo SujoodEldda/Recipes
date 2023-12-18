@@ -1,28 +1,27 @@
-$("#filter-recipes").on("click",function(){
-    $(".recipes").empty()
-    const input = $("#ingredient-input").val()
-    const glutenCheckBox = $("#gluten")
-    const diaryCheckBox = $("#diary")
-   
+
+filterRecipes.on("click",function(){
+    const input = ingredientInput.val()
+    recipesContainer.empty()
     $.get(`recipes/${input}/${glutenCheckBox.prop('checked')}/${diaryCheckBox.prop('checked')}`,function(data){
         if(data[0]!=undefined){
 
             for(let recipe of data){
     
-                let source = $(`#recipe-template`).html()
+                let source = recipeTemplate.html()
                 let template = Handlebars.compile(source)
                 let HTMLToAdd = template(recipe)
-                $(`.recipes`).append(HTMLToAdd)
+                recipesContainer.append(HTMLToAdd)
             }
         }
+        
         else{
-            alert("no recipes found!")
+            alert(noRecipesFoundMess)
         }
     })
     
 })
 
-$(".recipes").on("click",".recipe", function(){
+recipesContainer.on("click",".recipe", function(){
     let id = $(this).closest("div").attr('id')
     $.get(`ingredient/${id}`,function(data){
         alert(JSON.stringify(data))

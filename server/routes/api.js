@@ -1,13 +1,12 @@
 const express = require('express')
 const router = express.Router()
 const axios = require('axios')
-const validator = require('validator')
-const RECIPES_API = "https://recipes-goodness-elevation.herokuapp.com/recipes/ingredient/"
-
+const {consts} = require('../../config')
+const RECIPES_API = consts.RECIPES_API
+const dairyIngredients = consts.dairyIngredients
+const glutenIngredients = consts.glutenIngredients
 
 let recipes = []
-const dairyIngredients = ["Cream","Cheese","Milk","Butter","Creme","Ricotta","Mozzarella","Custard","Cream Cheese"]
-const glutenIngredients = ["Flour","Bread","spaghetti","Biscuits","Beer"]
 
 
 function filterRecipesByAllergies(recipes, allergicToGluten, allergicToDairy) {
@@ -54,7 +53,7 @@ function filterRecipesByAllergies(recipes, allergicToGluten, allergicToDairy) {
 router.get('/recipes/:ingredient/:gluten/:diary', function (req, res) {
     
     let {ingredient, gluten, diary} = req.params
-    axios.get(`https://recipes-goodness-elevation.herokuapp.com/recipes/ingredient/${ingredient}`)
+    axios.get(RECIPES_API+ingredient)
   .then(function (response) {
     recipes = response.data.results
     recipes = recipes.map(({ idMeal, title, thumbnail, href, ingredients }) => ({
