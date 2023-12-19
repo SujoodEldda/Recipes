@@ -1,14 +1,8 @@
+const render = new Renderer()
 const getData = function(input, inputExclude){
     $.get(`recipes/${input}/${glutenCheckBox.prop('checked')}/${diaryCheckBox.prop('checked')}/${inputExclude}`,function(data){
-        if(data[0]!=undefined){
-
-            for(let recipe of data){
-    
-                let source = recipeTemplate.html()
-                let template = Handlebars.compile(source)
-                let HTMLToAdd = template(recipe)
-                recipesContainer.append(HTMLToAdd)
-            }
+        if(data[0]){
+            render.renderRecipes(data)
         }
         
         else{
@@ -49,13 +43,8 @@ const getFavorite = function(){
     
     $.get('favorite',function(data){
         if(data[0]){
-            for(let recipe of data){
-                console.log("hhhhhhhh")
-                let source = recipeTemplate.html()
-                let template = Handlebars.compile(source)
-                let HTMLToAdd = template(recipe)
-                recipesContainer.append(HTMLToAdd)
-            }
+            
+            render.renderRecipes(data)
         }
         
         else{
