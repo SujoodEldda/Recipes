@@ -28,7 +28,7 @@ const filterRecipesByAllergies = function(sensitivesArr){
 }
 
 const mapRecipesData = function(){
-  recipes = recipes.map(({ idMeal, title, thumbnail, href, ingredients }) => ({//todo: make in a function!
+  recipes = recipes.map(({ idMeal, title, thumbnail, href, ingredients }) => ({
     idMeal,
     ingredients,
     title,
@@ -37,7 +37,7 @@ const mapRecipesData = function(){
   }))
 }
 
-router.get('/:ingredient', function (req, res) {
+router.get('/recipes/:ingredient', function (req, res) {
     sensitives['exclude'] = []
     let ingredient = req.params.ingredient
     let keys = req.query

@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, 'node_modules')))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/recipes', recipesAPI)
+app.use('/', recipesAPI)
 
 
 const port = 1544 
