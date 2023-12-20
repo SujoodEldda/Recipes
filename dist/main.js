@@ -1,4 +1,5 @@
 const render = new Renderer()
+
 const getData = function(input, inputExclude){
     $.get(`recipes/${input}/${glutenCheckBox.prop('checked')}/${diaryCheckBox.prop('checked')}/${inputExclude}`,function(data){
         if(data[0]){

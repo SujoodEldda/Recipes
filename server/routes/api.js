@@ -75,13 +75,17 @@ router.get('/ingredient/:id', function (req, res) {
 })
 
 router.post('/favorite', function(req,res){
-
-  if(!favorites.includes(req.body.id))
+  let indexOfExisting =  favorites.findIndex(recipe => recipe.idMeal === req.body.id)
+  if(indexOfExisting!=-1){
+    favorites.splice(indexOfExisting, 1)
+  }
+  else
   {
     let favoriteRecipe =  recipes.find(recipe => recipe.idMeal === req.body.id)
     if(favoriteRecipe!=null)
       favorites.push(favoriteRecipe)
   }
+  
 })
 
 router.get('/favorite', function(req,res){
