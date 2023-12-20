@@ -9,3 +9,4 @@ const noRecipesFoundMess = "no recipes found!"
 const favoriteButt = $("#favorites")
 const body = $("body")
 const container = $(".container")
+const PostMess = "POST complete"
