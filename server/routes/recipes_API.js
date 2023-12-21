@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const axios = require('axios')
 const {consts} = require('../../config')
+const { faker } = require('@faker-js/faker')
 const RECIPES_API = consts.RECIPES_API
 const dairyIngredients = consts.dairyIngredients
 const glutenIngredients = consts.glutenIngredients
@@ -53,6 +54,12 @@ router.get('/recipes/:ingredient', function (req, res) {
             sensitivesArr.push(sensitive)
         }
         filterRecipesByAllergies(sensitivesArr)
+        
+        for(let recipe of recipes){
+          recipe.chief = faker.person.fullName()
+          recipe.rating = Math.floor(Math.random() * 6)
+        }
+        
         res.send(recipes)
   })
   .catch(function (error) {

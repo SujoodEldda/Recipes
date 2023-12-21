@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes</title>
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./materialize-css/dist/css/materialize.min.css" media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 
@@ -14,13 +17,18 @@
       </div>
       <br>	
         <div class="filter">
-            <input id="ingredient-input" type="text">
+            <input id="ingredient-input" type="text" placeholder="enter ingredient">
             <br>
             
-            <input type="checkbox" id="gluten" name="gluten">
-          <label for="gluten"> allergic to gluten Ingredients</label><br>
-          <input type="checkbox" id="diary" name="diary">
-          <label for="diary"> allergic to dairy Ingredients</label><br><br>
+          <label>
+            <input type="checkbox" id="diary" class="filled-in" />
+            <span>allergic to dairy Ingredients</span>
+          </label>
+          <label>
+            <input type="checkbox" id="diary" class="filled-in" />
+            <span>allergic to gluten Ingredients</span>
+          </label>
+
           <input id="exclude-input" type="text" placeholder="exclude ingredient">
 <br>
             <button id="filter-recipes">Search!</button>
@@ -50,6 +58,8 @@
                     {{/each}}
                 </ul>
             </p>
+            <div>chief: {{chief}}</div>
+            <div>rating of this dish is: {{rating}}/5</div>
               <a href={{href}} class="u-active-black u-border-none u-btn u-btn-round u-button-style u-hover-black u-palette-2-base u-radius-50 u-btn-1">Watch the video</a>
               
             </div>
@@ -58,7 +68,7 @@
         
        
    </script>
-
+   <script type="text/javascript" src="./materialize-css/dist/js/materialize.min.js"></script>
     <script src="./jquery/dist/jquery.js"></script>
     <script src="./handlebars/dist/handlebars.js"></script>
     <script src="config.js"></script>
