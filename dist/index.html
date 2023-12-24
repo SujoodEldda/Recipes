@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./materialize-css/dist/css/materialize.min.css" media="screen,projection"/>
+    <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/2e697dc3dc.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
@@ -58,10 +60,13 @@
                     {{/each}}
                 </ul>
             </p>
-            <div>chief: {{chief}}</div>
-            <div>rating of this dish is: {{rating}}/5</div>
+            <div><i class="fa-solid fa-kitchen-set"></i> chief: {{chief}}</div>
+            <div>
+              <div class="stars" data-rating={{rating}}></div>
+              <br>
+            <!-- rating of this dish is: {{rating}}/5</div> -->
               <a href={{href}} class="u-active-black u-border-none u-btn u-btn-round u-button-style u-hover-black u-palette-2-base u-radius-50 u-btn-1">Watch the video</a>
-              
+             
             </div>
           </div>
 
