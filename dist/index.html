@@ -15,7 +15,7 @@
 
     <div class="container">
       <div>
-        <button id="favorites" onclick=getFavorite()>Show favorites</button>
+        <button id="favorites" onclick=getFavorite() class="button-55" role="button">Show favorites</button>
       </div>
       <br>	
         <div class="filter">
@@ -32,8 +32,12 @@
           </label>
 
           <input id="exclude-input" type="text" placeholder="exclude ingredient">
-<br>
-            <button id="filter-recipes">Search!</button>
+      <br>
+      <div class="end">
+
+        <button id="filter-recipes" class="button-55" role="button">Search!</button>
+      </div>
+
         </div>
         </div>
         <br>
@@ -64,7 +68,6 @@
             <div>
               <div class="stars" data-rating={{rating}}></div>
               <br>
-            <!-- rating of this dish is: {{rating}}/5</div> -->
               <a href={{href}} class="u-active-black u-border-none u-btn u-btn-round u-button-style u-hover-black u-palette-2-base u-radius-50 u-btn-1">Watch the video</a>
              
             </div>
