@@ -10,3 +10,4 @@ const favoriteButt = $("#favorites")
 const body = $("body")
 const container = $(".container")
 const PostMess = "POST complete"
+const doneWithTheRecipes = "there is no more recipes for this ingredient!"

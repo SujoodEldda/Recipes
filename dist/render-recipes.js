@@ -3,6 +3,7 @@ class Renderer {
 
     }
     renderRecipes(data){
+        recipesContainer.empty()
         for(let recipe of data){
 
             let source = recipeTemplate.html()

@@ -1,9 +1,12 @@
 const render = new Renderer()
+let page =0
+let recipesNum = 0
 
 const getData = function(input, inputExclude, gluten, dairy){
-    
     $.get(`recipes/${input}/?gluten=${gluten}&dairy=${dairy}&exclude=${inputExclude}`,function(data){
         if(data[0]){
+            page = 0
+            recipesNum = data.length
             render.renderRecipes(data)
         }
         
@@ -26,6 +29,34 @@ filterRecipes.on("click",function(){
     
 })
 
+const goToPage = function(){
+
+    $.get(`pages/${page}`,function(data){
+        if(data[0]){
+
+            render.renderRecipes(data)
+        }
+        
+        else{
+            alert(doneWithTheRecipes)
+        }
+    })
+}
+
+const next = function(){
+    console.log(page)
+    if(page+1<=recipesNum){
+        page += 1
+        goToPage()
+    }
+}
+const previous = function(){
+    console.log(page)
+    if(page-1 >= 0){
+        page-=1
+        goToPage()
+    }
+}
 
 recipesContainer.on("click",".recipe", function(){
     let id = $(this).closest("div").attr('id')
