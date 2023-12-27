@@ -55,7 +55,9 @@
     <script id="recipe-template" type="text/x-handlebars-template">
         <div class="u-container-style u-list-item u-radius-20 u-repeater-item u-shape-round u-video-cover u-white u-list-item-1">
             <div id={{idMeal}} class="u-container-layout u-similar-container u-valign-bottom-lg u-valign-bottom-md u-valign-top-xl u-container-layout-1">
-              <img alt="" class="u-expanded-width u-image u-image-round u-radius-10 u-image-1" data-image-width="900" data-image-height="600" src={{thumbnail}}>
+              <iframe class="u-expanded-width u-image u-image-round u-radius-10 u-image-1" width="900" height="600" src={{gif}}>
+              <!-- <iframe src={{url}}></iframe> -->
+
               <h4 class="recipe u-text u-text-palette-2-base u-text-1"> {{title}} <span class="like"> ❤️ </span> </h4>
               <p class="u-text u-text-default u-text-2 ">ingredients:
                 <ul class="three-items-row">
@@ -68,11 +70,12 @@
             <div>
               <div class="stars" data-rating={{rating}}></div>
               <br>
-              <a href={{href}} class="u-active-black u-border-none u-btn u-btn-round u-button-style u-hover-black u-palette-2-base u-radius-50 u-btn-1">Watch the video</a>
-             
-            </div>
-          </div>
-
+              <a href={{href}} class="u-active-black u-border-none u-btn u-btn-round u-button-style u-hover-black u-palette-2-base u-radius-50 u-btn-1">watch video</a>
+              <a href="mailto:sujood.eldda@gmail.com?subject=Check%20out%20this%20recipe!%20{{title}}&body=You%20can%20see%20the%20recipe%20in%20this%20video%20%3A%20{{href}}">Email us</a>
+              </div>
+              </div>
+              </div>
+      
         
        
    </script>

@@ -9,6 +9,7 @@ const glutenIngredients = consts.glutenIngredients
 const noRecipesFoundMess = consts.noRecipesFoundMess
 const recipeDoesnotExist = consts.recipeDoesnotExist
 const sensitives = consts.sensitives
+const FOOD_API = consts.FOOD_API
 
 let recipes = []
 let favorites = []
@@ -59,8 +60,13 @@ router.get('/recipes/:ingredient', function (req, res) {
           recipe.chief = faker.person.fullName()
           recipe.rating = Math.floor(Math.random() * 6)
         }
-        
-        res.send(recipes)
+        axios.get(FOOD_API+recipes.length) 
+          .then(function (response) {
+            for(let recipeIndex in recipes){
+              recipes[recipeIndex].gif = response.data.data[recipeIndex].embed_url
+            }
+            res.send(recipes)
+          })
   })
   .catch(function (error) {
     console.log(error)
