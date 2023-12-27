@@ -1,12 +1,10 @@
 const render = new Renderer()
 let page =0
-let recipesNum = 0
 
 const getData = function(input, inputExclude, gluten, dairy){
     $.get(`recipes/${input}/?gluten=${gluten}&dairy=${dairy}&exclude=${inputExclude}`,function(data){
         if(data[0]){
             page = 0
-            recipesNum = data.length
             render.renderRecipes(data)
         }
         
