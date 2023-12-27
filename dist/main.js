@@ -44,14 +44,11 @@ const goToPage = function(){
 }
 
 const next = function(){
-    console.log(page)
-    if(page+1<=recipesNum){
-        page += 1
-        goToPage()
-    }
+    page += 1
+    goToPage()
+    
 }
 const previous = function(){
-    console.log(page)
     if(page-1 >= 0){
         page-=1
         goToPage()

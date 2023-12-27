@@ -62,7 +62,7 @@ router.get('/recipes/:ingredient', function (req, res) {
           recipe.chief = faker.person.fullName()
           recipe.rating = Math.floor(Math.random() * 6)
         }
-        axios.get("http://api.giphy.com/v1/gifs/search?q=food&api_key=dBS78jFLZ0L3VCiY33EkbrYyPC508eFS&limit="+recipes.length) 
+        axios.get(FOOD_API+recipes.length) 
           .then(function (response) {
             for(let recipeIndex in recipes){
               recipes[recipeIndex].gif = response.data.data[recipeIndex].embed_url
@@ -79,7 +79,7 @@ router.get('/recipes/:ingredient', function (req, res) {
 
 const pagination = function(numPage){
   let gotTo = numPage*Recipes_Num_Per_Page
-  let newRecipes = recipes.slice(gotTo, gotTo + Recipes_Num_Per_Page-1)
+  let newRecipes = recipes.slice(gotTo, gotTo + Recipes_Num_Per_Page)
   return newRecipes
 }
 router.get('/pages/:page', function (req, res) {
